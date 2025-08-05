@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f4f3ee;
 }
@@ -11,6 +13,16 @@
 body {
   background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p::selection,
+h1::selection,
+h2::selection,
+span::selection {
+  background-color: #e7cc47; /* Or any other Tailwind color */
+  color: #704b06; /* Optional: change text color for contrast */
 }
 
 /* @theme inline {

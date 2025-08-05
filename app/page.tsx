@@ -1,5 +1,10 @@
+'use client';
+
+import { redirect } from "next/navigation";
 
 export default function Home() {
+  redirect('/portfolio');
+
   return (
     <div className="min-h-screen bg-violet-50">
       <main className="min-w-screen p-8 md:p-20">
