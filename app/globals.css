@@ -20,6 +20,7 @@ body {
 p::selection,
 h1::selection,
 h2::selection,
+code::selection,
 span::selection {
   background-color: #e7cc47; /* Or any other Tailwind color */
   color: #704b06; /* Optional: change text color for contrast */

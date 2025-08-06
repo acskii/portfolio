@@ -1,0 +1,22 @@
+[
+    {"contact": {
+        "href": "https://www.github.com/acskii",
+        "title": "GitHub"
+    }},
+    {"contact": {
+        "href": "https://www.linkedin.com/in/andrew-sameh-adel",
+        "title": "Linkedin"
+    }},
+    {"contact": {
+        "href": "andrew.sameh.adel@gmail.com",
+        "title": "Email"
+    }},
+    {"contact": {
+        "href": "(+20) 0114 885 9551",
+        "title": "Mobile"
+    }},
+    {"contact": {
+        "href": "https://portfolio-livid-mu-57.vercel.app/",
+        "title": "Website"
+    }}
+]
