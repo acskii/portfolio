@@ -59,7 +59,7 @@ export default function About({ username } : { username: string }) {
                 {error != "" ? <span className="text-xl italic">{error}</span> : <></>}
             </div>
             <div className="flex flex-col md:flex-row justify-around items-center">
-                <div className="flex flex-col flex-1 border border-4 border-yellow-500 p-2 md:p-4 h-60 w-80">
+                <div className="flex flex-col flex-1 border border-4 border-yellow-500 p-2 md:p-4 min-w-60 h-60">
                     <h2 className={`${poppins.className} text-2xl md:text-left text-center font-bold`}>
                         {user?.name}
                     </h2>
@@ -99,7 +99,7 @@ export default function About({ username } : { username: string }) {
                 <img 
                     src={user ? user.avatar_url : "https://commons.wikimedia.org/wiki/File:Portrait_Placeholder.png"}
                     alt="Avatar"
-                    className="max-w-80 max-h-80 md:w-60 md:h-60 object-cover border border-4 border-t-0 md:border-t-4 md:border-l-0 border-yellow-500" 
+                    className="max-h-60 max-w-60 w-60 h-60 object-cover border border-4 border-t-0 md:border-t-4 md:border-l-0 border-yellow-500" 
                 />
             </div>
         </div>
