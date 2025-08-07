@@ -14,6 +14,9 @@ export default function Page() {
                 <Contact />
             </div>
             <div className="mb-20">
+                <Project />
+            </div>
+            <div className="mb-20">
                 <Skill />
             </div>
         </>

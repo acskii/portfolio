@@ -1,0 +1,70 @@
+[
+    {
+        "preview": "",
+        "name": "Expense Tracker API",
+        "desc": "A backend RESTful API designed to securely track user expenses and financial transactions.",
+        "skills": [
+            "Java",
+            "Springboot",
+            "PostgreSQL",
+            "Flyway"
+        ],
+        "links": {
+            "GitHub": "https://github.com/acskii/expense-tracker-api"
+        },
+        "features": [
+            {
+                "Security": "JWT-based user authentication",
+                "Scalability": "Flyway for automated and version-controlled database migrations",
+                "Organisation": "Record detailed transaction information for users"
+            }
+        ],
+        "Framework": "Springboot"
+    },
+    {
+        "preview": "",
+        "name": "Personal Blog",
+        "desc": "A minimalistic blog platform for viewing personal blog posts.",
+        "skills": [
+            "JavaScript",
+            "React",
+            "Supabase",
+            "Markdown"
+        ],
+        "links": {
+            "GitHub": "https://github.com/acskii/blog",
+            "Website": "https://acskii.github.io/blog/"
+        },
+        "features": [
+            {
+                "Maintainable": "Backed by Supabase PostgreSQL database",
+                "Responsive": "Clean, simple and user-friendly interface",
+                "Readability": "Uses color linted code blocks for clearer code"
+            }
+        ],
+        "Framework": ["React", "Vite"]
+    },
+    {
+        "preview": "https://github.com/acskii/comfy-reader/blob/main/banner.png?raw=true",
+        "name": "comfy-reader",
+        "desc": "Comfy Reader is a web-based story and manga aggregator that brings content from multiple sources into one clean, unified platform. It enables users to search, preview, and download chapters from supported websites like bato.to and MangaDex.",
+        "skills": [
+            "Python",
+            "Django",
+            "Redis"
+        ],
+        "links": {
+            "GitHub": "https://github.com/acskii/comfy-reader"
+        },
+        "features": [
+            {
+                "Self-hosting": "User can host the platform locally on their machine",
+                "Chapter Previews": "Instantly preview chapters before committing to reading or downloading",
+                "Performance-Boosted": "Reduces load times by 60% with Redis caching for search and page data",
+                "Reading History Tracking": "Automatically records and displays your recently visited series"   
+            }
+        ],
+        "Framework": "Django",
+        "Library": "Bootstrap5"
+    }
+]

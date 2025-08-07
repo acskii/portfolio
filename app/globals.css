@@ -22,8 +22,10 @@ h1::selection,
 h2::selection,
 h3::selection,
 h4::selection,
+h5::selection,
 a::selection,
 code::selection,
+img::selection,
 button::selection,
 span::selection {
   background-color: #e7cc47; /* Or any other Tailwind color */
