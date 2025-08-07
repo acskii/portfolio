@@ -9,14 +9,24 @@
             "PostgreSQL",
             "Flyway"
         ],
-        "links": {
-            "GitHub": "https://github.com/acskii/expense-tracker-api"
-        },
+        "links": [
+            { 
+                "name": "GitHub",
+                "href": "https://github.com/acskii/expense-tracker-api" 
+            }
+        ],
         "features": [
             {
-                "Security": "JWT-based user authentication",
-                "Scalability": "Flyway for automated and version-controlled database migrations",
-                "Organisation": "Record detailed transaction information for users"
+                "header": "Security",
+                "desc": "JWT-based user authentication"
+            },
+            {
+                "header": "Scalability",
+                "desc": "Flyway for automated and version-controlled database migrations"
+            },
+            {
+                "header": "Organisation",
+                "desc": "Record detailed transaction information for users"
             }
         ],
         "Framework": "Springboot"
@@ -31,15 +41,28 @@
             "Supabase",
             "Markdown"
         ],
-        "links": {
-            "GitHub": "https://github.com/acskii/blog",
-            "Website": "https://acskii.github.io/blog/"
-        },
+        "links": [
+            { 
+                "name": "GitHub",
+                "href": "https://github.com/acskii/blog" 
+            },
+            { 
+                "name": "Website",
+                "href": "https://acskii.github.io/blog/"
+            }
+        ],
         "features": [
             {
-                "Maintainable": "Backed by Supabase PostgreSQL database",
-                "Responsive": "Clean, simple and user-friendly interface",
-                "Readability": "Uses color linted code blocks for clearer code"
+                "header": "Maintainable",
+                "desc": "Backed by Supabase PostgreSQL database"
+            },
+            {
+                "header": "Responsive",
+                "desc": "Clean, simple and user-friendly interface"
+            },
+            {
+                "header": "Readability",
+                "desc": "Uses color linted code blocks for clearer code"
             }
         ],
         "Framework": ["React", "Vite"]
@@ -53,15 +76,28 @@
             "Django",
             "Redis"
         ],
-        "links": {
-            "GitHub": "https://github.com/acskii/comfy-reader"
-        },
+        "links": [
+            { 
+                "name": "GitHub",
+                "href": "https://github.com/acskii/comfy-reader" 
+            }
+        ],
         "features": [
             {
-                "Self-hosting": "User can host the platform locally on their machine",
-                "Chapter Previews": "Instantly preview chapters before committing to reading or downloading",
-                "Performance-Boosted": "Reduces load times by 60% with Redis caching for search and page data",
-                "Reading History Tracking": "Automatically records and displays your recently visited series"   
+                "header": "Self-hosting",
+                "desc": "User can host the platform locally on their machine"
+            },
+            {
+                "header": "Chapter Previews",
+                "desc": "Instantly preview chapters before committing to reading or downloading"
+            },
+            {
+                "header": "Performance-Boosted",
+                "desc": "Reduces load times by 60% with Redis caching for search and page data"
+            },
+            {
+                "header": "Reading History Tracking",
+                "desc": "Automatically records and displays your recently visited series"
             }
         ],
         "Framework": "Django",

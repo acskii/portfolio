@@ -114,10 +114,10 @@ export default function Card({ project }: { project: ProjectData }) {
                     Links
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                    {Object.entries(links).map(([linkName, url]) => (
+                    {links.map((link) => (
                         <a
-                            key={linkName}
-                            href={url}
+                            key={link.name}
+                            href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             onTouchStart={(e) => e.stopPropagation()}
@@ -125,7 +125,7 @@ export default function Card({ project }: { project: ProjectData }) {
                             onTouchEnd={(e) => e.stopPropagation()}
                             className="bg-amber-500 font-semibold border-2 border-amber-700 hover:bg-yellow-600 px-3 py-2 transition-colors text-md flex items-center gap-1"
                         >
-                            {linkName}
+                            {link.name}
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -137,7 +137,7 @@ export default function Card({ project }: { project: ProjectData }) {
     };
 
     const renderFeaturesSection = () => {
-        if (!features || features.length === 0) return null;
+        if (!features || features.length == 0) return null;
         
         return (
             <>
@@ -169,16 +169,14 @@ export default function Card({ project }: { project: ProjectData }) {
                     <div className="space-y-3">
                         {features.map((feature, index) => (
                             <div key={index} className="bg-amber-800 p-2">
-                                {Object.entries(feature).map(([featureName, description]) => (
-                                    <div key={featureName}>
-                                        <h5 className="font-semibold text-yellow-300 mb-1">
-                                            {featureName}
-                                        </h5>
-                                        <p className="text-white text-md ml-10 break-words overflow-auto">
-                                            {description}
-                                        </p>
-                                    </div>
-                                ))}
+                                <div key={feature.header}>
+                                    <h5 className="font-semibold text-yellow-300 mb-1">
+                                        {feature.header}
+                                    </h5>
+                                    <p className="text-white text-md ml-10 break-words overflow-auto">
+                                        {feature.desc}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>

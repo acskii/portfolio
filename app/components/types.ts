@@ -1,14 +1,21 @@
+export type Link = {
+    name: string;
+    href: string;
+}
 
-export type ProjectLink = Record<string, string>;
-
-export type ProjectFeature = Record<string, string>;
+export type Feature = {
+    header: string;
+    desc: string;
+}
 
 export type ProjectData = {
     preview: string;
     name: string;
     desc: string;
     skills: string[];
-    links: ProjectLink;
-    features: ProjectFeature[];
-    [key: string]: any; // Allow additional properties
+
+    links: Link[];
+    features: Feature[];
+
+    [key: string]: string | string[] | Record<string, string> | Record<string, string>[] | undefined;
 };
