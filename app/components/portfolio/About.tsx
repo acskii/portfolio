@@ -52,7 +52,7 @@ export default function About({ username } : { username: string }) {
     return (
         <div className="px-0 md:px-14">
             <div className="flex flex-row gap-2 items-center">
-                <h1 className={`${poppins.className} border border-4 border-yellow-500 font-bold text-2xl w-50 text-center mb-5`}>
+                <h1 id="about" className={`${poppins.className} border border-4 border-yellow-500 font-bold text-2xl w-50 text-center mb-5`}>
                     About Me
                 </h1>
                 {loading ? <Spinner /> : <></>}
