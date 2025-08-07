@@ -1,0 +1,60 @@
+[
+    {
+        "header": "Programming",
+        "content": [
+            {
+                "name": "Java",
+                "image": "https://img.icons8.com/?size=100&id=13679&format=png&color=000000"
+            },
+            {
+                "name": "JavaScript",
+                "image": "https://img.icons8.com/?size=100&id=108784&format=png&color=000000"
+            },
+            {
+                "name": "TypeScript",
+                "image": "https://img.icons8.com/?size=100&id=uJM6fQYqDaZK&format=png&color=000000"
+            },
+            {
+                "name": "Python",
+                "image": "https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
+            }
+        ]
+    },
+    {
+        "header": "Frameworks",
+        "content": [
+            {
+                "name": "Springboot",
+                "image": "https://img.icons8.com/?size=100&id=A3Ulk2RcONKs&format=png&color=000000"
+            },
+            {
+                "name": "React",
+                "image": "https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000"
+            },
+            {
+                "name": "Django",
+                "image": "https://img.icons8.com/?size=100&id=qV-JzWYl9dzP&format=png&color=000000"
+            }
+        ]
+    },
+    {
+        "header": "Languages",
+        "content": [
+            {
+                "name": "English",
+                "spec": "Fluent",
+                "image": "https://img.icons8.com/?size=100&id=_2NdYhjyynkv&format=png&color=000000"
+            },
+            {
+                "name": "Arabic",
+                "spec": "Native",
+                "image": "https://img.icons8.com/?size=100&id=4eltveaGG17O&format=png&color=000000"
+            },
+            {
+                "name": "German",
+                "spec": "A2",
+                "image": "https://img.icons8.com/?size=100&id=blG5IqaAWu_N&format=png&color=000000"
+            }
+        ]
+    }
+]
