@@ -56,7 +56,7 @@ export default function Skill() {
                                 </button>
                             </div>
                             <div 
-                                className={`${listStates[skill.header] ? "hidden" : ""} grid md:grid-cols-10 gap-4 w-full md:ml-20 mt-2 md:mt-5`}
+                                className={`${listStates[skill.header] ? "hidden" : ""} grid md:grid-cols-5 lg:grid-cols-8 gap-4 w-full md:ml-20 mt-2 md:mt-5`}
                             >   
                                 {skill.content.map( (c, index) => {
                                     return (
@@ -67,7 +67,7 @@ export default function Skill() {
                             <div
                                 className={`${!listStates[skill.header] ? "hidden" : ""} w-full md:ml-20 mt-2 md:mt-5`}
                             >
-                                <ul className="grid grid-cols-1 md:grid-cols-10 gap-2">
+                                <ul className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-8 gap-2">
                                     {skill.content.map((c: SkillContent, index) => {
                                         return (
                                             <li 
