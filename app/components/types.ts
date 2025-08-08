@@ -19,3 +19,9 @@ export type ProjectData = {
 
     [key: string]: string | string[] | Record<string, string> | Record<string, string>[] | undefined;
 };
+
+export type CertificateData = {
+    name: string;
+    date: string;
+    downloadId: string;
+};

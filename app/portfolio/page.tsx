@@ -2,6 +2,7 @@ import About from "@/app/components/portfolio/About";
 import Contact from "@/app/components/portfolio/Contact";
 import Project from "@/app/components/portfolio/Project";
 import Skill from "@/app/components/portfolio/Skill";
+import Certificate from "@/app/components/portfolio/Certificate";
 
 export default function Page() {
     return (
@@ -17,6 +18,9 @@ export default function Page() {
             </div>
             <div className="mb-20">
                 <Skill />
+            </div>
+            <div className="mb-20">
+                <Certificate />
             </div>
         </>
     );
