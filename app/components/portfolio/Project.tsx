@@ -80,7 +80,7 @@ export default function Project() {
                 </h1>
                 {loading ? <Spinner /> : <></>}
                 {projects.length == 0 && !loading ? 
-                    <h2 className={`${poppins.className} border border-4 border-yellow-500 font-bold text-xl text-center mb-5 px-4 py-2`}>
+                    <h2 className={`${poppins.className} border border-4 border-yellow-500 font-bold text-xl text-center mb-5 px-2`}>
                         No projects listed
                     </h2> 
                 : <></>}

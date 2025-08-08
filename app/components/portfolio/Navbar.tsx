@@ -9,13 +9,14 @@ const navItems = [
     { href: "#contact", label: "Contact" },
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
+    { href: "#certificates", label: "Certificates" },
 ];
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className={`${poppins.className} w-screen bg-yellow-400 dark:bg-indigo-950 min-h-20 flex flex-row justify-between items-center px-8 py-5 relative`}>
+        <nav className={`${poppins.className} max-w-screen bg-yellow-400 dark:bg-indigo-950 min-h-20 flex flex-row justify-between items-center px-8 py-5 relative`}>
             <div className="flex flex-row gap-1 items-center">
                 <img src="../../../favicon.ico" alt="king_cat.ico" className="w-[40px] md:w-[50px]" />
                 <h1 className="text-white text-2xl md:text-3xl font-bold">Portfolio</h1>
