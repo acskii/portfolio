@@ -1,6 +1,7 @@
 
 import NavBar from "@/app/components/portfolio/Navbar"
 import ToTopButton from "@/app/components/ToTopButton";
+import Footer from "@/app/components/portfolio/Footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -10,6 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {children}
             </div>
             <ToTopButton />
+            <Footer />
         </>
     );
 }
