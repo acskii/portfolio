@@ -62,7 +62,7 @@ export default function Certificate() {
                     </h2> 
                 : <></>}
             </div>
-            <div className="flex flex-col md:flex-row items-stretch max-h-screen">
+            <div className="flex flex-col md:flex-row items-center">
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {certificates.map((certificate, index) => (
                         <div
