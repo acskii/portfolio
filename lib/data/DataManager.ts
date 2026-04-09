@@ -4,6 +4,7 @@ import { MissingFileError } from "../error/MissingFileError";
 import AboutMapper, { AboutItemType } from "./mapper/AboutMapper";
 import CertificateMapper, { CertificateType } from "./mapper/CertificateMapper";
 import ContactMapper, { type ContactType } from "./mapper/ContactMapper";
+import ProjectMapper, { ProjectType } from "./mapper/ProjectMapper";
 
 class DataManager {
     private driveManager : GoogleDriveManager;
@@ -14,6 +15,7 @@ class DataManager {
 
     /* FILE NAMES IN DRIVE */
     private CONTACT_FILE = "contact.json";
+    private PROJECT_FILE = "project.json";
     private ABOUT_FILE = "about.json";
     private CERTIFICATES_FOLDER = "Certificates";
     
@@ -68,6 +70,11 @@ class DataManager {
 
         const files = await this.driveManager.getFolderContent(folder.id);
         return files.map((f: any) => CertificateMapper.map(f as CertificateType));
+    }
+
+    async getProjects() {
+        const json = await this.getJSON(this.PROJECT_FILE);
+        return json.map((p: any) => ProjectMapper.map(p as ProjectType));
     }
 };
 

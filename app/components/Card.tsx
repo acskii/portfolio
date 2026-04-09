@@ -6,9 +6,9 @@ import { poppins } from "@/app/components/fonts";
 import { useState } from "react";
 
 /* Type imports */
-import { ProjectData } from "@/app/components/types";
+import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 
-export default function Card({ project }: { project: ProjectData }) {
+export default function Card({ project }: { project: ProjectType }) {
     const [featuresOpen, setFeaturesOpen] = useState(false);
     const [activeTab, setActiveTab] = useState(0);
 

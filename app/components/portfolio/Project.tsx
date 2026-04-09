@@ -1,28 +1,15 @@
 'use client';
 import { poppins } from "@/app/components/fonts";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Card from "@/app/components/Card";
-import project from "@/app/project.json";
-import Spinner from "@/app/components/LoadingSpinner";
 
 /* Type imports */
-import { ProjectData } from "@/app/components/types";
+import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 
-export default function Project() {
-    const [projects, setProjects] = useState<ProjectData[]>([]);
+export default function Project({ projects } : { projects: ProjectType[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [loading, setLoading] = useState(true);
     const touchStartX = useRef<number>(0);
     const touchEndX = useRef<number>(0);
-
-    useEffect(() => {
-        const loadProjects = () => {
-            setProjects(project);
-            setLoading(false);
-        };
-        
-        loadProjects();
-    }, []);
 
     const nextProject = () => {
         setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -78,8 +65,7 @@ export default function Project() {
                 <h1 id="projects" className={`${poppins.className} border border-4 border-yellow-500 font-bold text-2xl w-50 text-center mb-5`}>
                     Projects
                 </h1>
-                {loading ? <Spinner /> : <></>}
-                {projects.length == 0 && !loading ? 
+                {projects.length == 0 ? 
                     <h2 className={`${poppins.className} border border-4 border-yellow-500 font-bold text-xl text-center mb-5 px-2`}>
                         No projects listed
                     </h2> 
