@@ -1,4 +1,4 @@
-import { Github, Mail, Linkedin, Phone, Globe } from "@deemlol/next-icons";
+import { Github, Mail, Linkedin, Phone, Globe, Book } from "@deemlol/next-icons";
 
 type IconMapType = {
     [key: string]: React.ComponentType<{ size?: number }>;
@@ -9,5 +9,6 @@ export const iconMap: IconMapType = {
     Email: Mail,
     Linkedin: Linkedin,
     Mobile: Phone,
-    Website: Globe
+    Website: Globe,
+    Book: Book,
 };

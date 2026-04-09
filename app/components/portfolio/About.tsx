@@ -7,21 +7,22 @@ import { poppins } from "@/app/components/fonts";
 import { MapPin, House, Sparkles2, Book } from "@deemlol/next-icons";
 
 /* React imports */
-import { useState, useEffect } from "react";
+import { useState, useEffect, createElement } from "react";
 import Spinner from "@/app/components/LoadingSpinner";
+import { AboutItemType } from "@/lib/data/mapper/AboutMapper";
+import { iconMap } from "../icons";
 
 /* Types */
 type GitHubResponse = {
     name: string;
     bio: string;
     avatar_url: string;
-    company: string;
     login: string;
     location: string;
 };
 
 
-export default function About({ username } : { username: string }) {
+export default function About({ username, tidbits, bio } : { username: string, tidbits: AboutItemType[], bio: string }) {
     const [loading, setLoading] = useState<boolean>(false);
     const [user, setUser] = useState<GitHubResponse | null>(null);
     const [error, setError] = useState<string>("");
@@ -74,27 +75,30 @@ export default function About({ username } : { username: string }) {
                             <span>{user.bio}</span>
                         </div>
                     )}  
-                    <div className="text-sm flex flex-col md:flex-row gap-1 items-start md:items-center leading-relaxed">
-                        <Book size={18} /> 
-                        <span>Studying <span className="font-semibold">Computer & Communication</span> at Alexandria University</span>
-                    </div>
-                    {user?.company && (
-                        <p className="text-sm flex flex-row gap-1 items-center">
-                            <House size={18} /> {user.company}
-                        </p>
-                    )}
+                    
+                    {
+                        tidbits.map((t) => {
+                            const render = iconMap[t.icon];
+
+                            return (
+                                <div className="text-sm flex flex-col md:flex-row gap-1 items-start md:items-center leading-relaxed">
+                                    {render && createElement(render, { size: 18 })} 
+                                    <span>{t.content}</span>
+                                </div>
+                            )
+                        })
+                    }
+
                     {user?.location && (
-                        <p className="text-sm flex flex-row gap-1 items-center">
-                            <MapPin size={18} /> {user.location}
-                        </p>
+                        <div className="text-sm flex flex-col md:flex-row gap-1 items-start md:items-center leading-relaxed">
+                            <MapPin size={18} /> 
+                            <span>{user.location}</span>
+                        </div>
                     )}
+
                     <hr className="my-2 h-0.5 border-t-0 bg-amber-200" />
-                    <p className="wrap-anywhere overflow-auto">
-                        Hey, I’m Andrew — an engineer who enjoys turning ideas into working software. 
-                        I’ve always been curious about how things work, which led me to explore full-stack development with Java, 
-                        Spring Boot, and React. 
-                        I like building clean interface, and learning something new with every project.
-                    </p>
+
+                    <p className="wrap-anywhere overflow-auto">{bio}</p>
                 </div>
                 <img 
                     src={user ? user.avatar_url : "https://commons.wikimedia.org/wiki/File:Portrait_Placeholder.png"}

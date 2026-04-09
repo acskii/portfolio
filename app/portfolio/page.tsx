@@ -9,11 +9,12 @@ import DataManager from "@/lib/data/data_manager";
 export default async function Page() {
     await DataManager.load();
     const contacts = await DataManager.getContact();
-    console.log(contacts);
+    const about = await DataManager.getAbout();
+
     return (
         <>
             <div className="mb-20">
-                <About username="acskii" />
+                <About username="acskii" tidbits={about.about} bio={about.bio}/>
             </div>
             <div className="mb-40 md:mb-20">
                 <Contact contacts={contacts} />
