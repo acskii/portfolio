@@ -4,7 +4,7 @@ import Project from "@/app/components/portfolio/Project";
 import Skill from "@/app/components/portfolio/Skill";
 import Certificate from "@/app/components/portfolio/Certificate";
 
-import DataManager from "@/lib/data/data_manager";
+import DataManager from "@/lib/data/DataManager";
 
 export default async function Page() {
     await DataManager.load();

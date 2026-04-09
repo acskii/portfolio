@@ -1,4 +1,4 @@
-import GoogleDriveManager from "../drive/google_drive";
+import GoogleDriveManager from "../drive/GoogleDriveManager";
 import { DriveFileEntry } from "../drive/types";
 import { MissingFileError } from "../error/MissingFileError";
 import AboutMapper, { AboutItemType } from "./mapper/AboutMapper";
