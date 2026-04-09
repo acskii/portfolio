@@ -7,11 +7,12 @@ import { poppins } from "@/app/components/fonts";
 import { iconMap } from "@/app/components/icons";
 
 /* Contacts JSON */
-import contact from "@/app/contact.json";
+// import contact from "@/app/contact.json";
 import { createElement } from "react";
 import CopyToClipboard from "../CopyToClipboard";
+import { ContactType } from "@/lib/data/mapper/ContactMapper";
 
-export default function Contact() {
+export default function Contact({ contacts }: { contacts: ContactType[] }) {
     return (
         <div className="px-0 md:px-14">
             <div className="flex flex-row gap-2 items-center">
@@ -39,16 +40,16 @@ export default function Contact() {
                 </div>
                     <div className="flex-1 min-w-60 md:min-w-100 max-w-screen border border-4 border-t-0 md:border-t-4 border-yellow-500 flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-2 max-h-screen p-8 md:border-l-0">
                         {
-                            contact.map((c) => {
-                                const render = iconMap[c.contact.title];
+                            contacts.map((c) => {
+                                const render = iconMap[c.title];
 
                                 return (
-                                    <div className="" key={c.contact.title}>
+                                    <div className="" key={c.title}>
                                         <div className="flex flex-row gap-1 items-center mb-2">
                                             {render && createElement(render, { size: 18 })}
-                                            <h3 className="border border-2 border-amber-200 px-8 font-medium text-md">{c.contact.title}</h3>
+                                            <h3 className="border border-2 border-amber-200 px-8 font-medium text-md">{c.title}</h3>
                                         </div>
-                                        <CopyToClipboard copy={c.contact.href} />
+                                        <CopyToClipboard copy={c.href} />
                                     </div>
                                 );
                             })
