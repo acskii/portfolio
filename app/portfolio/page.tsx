@@ -10,6 +10,7 @@ export default async function Page() {
     await DataManager.load();
     const contacts = await DataManager.getContact();
     const about = await DataManager.getAbout();
+    const certificates = await DataManager.getCertificates();
 
     return (
         <>
@@ -22,11 +23,11 @@ export default async function Page() {
             <div className="mb-20">
                 <Project />
             </div>
-            <div className="mb-20">
+            {/* <div className="mb-20">
                 <Skill />
-            </div>
+            </div> */}
             <div className="mb-20">
-                <Certificate />
+                <Certificate certificates={certificates} />
             </div>
         </>
     );

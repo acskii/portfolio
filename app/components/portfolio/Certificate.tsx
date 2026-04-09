@@ -1,36 +1,9 @@
-'use client';
-
-/* React imports */
-import { useState, useEffect } from "react";
-
 /* Font imports */
 import { poppins } from "@/app/components/fonts";
 
-/* Icon imports */
-import { iconMap } from "@/app/components/icons";
+import { CertificateType } from "@/lib/data/mapper/CertificateMapper";
 
-/* Certificates JSON */
-import certificate from "@/app/certificate.json";
-
-/* Types imports */
-import type { CertificateData } from "@/app/components/types";
-
-import Spinner from "@/app/components/LoadingSpinner";
-
-export default function Certificate() {
-    const [certificates, setCertificates] = useState<CertificateData[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string>("");
-
-    useEffect(() => {
-        const loadCertificates = () => {
-            setCertificates(certificate);
-            setLoading(false);
-        };
-        
-        loadCertificates();
-    }, []);
-
+export default function Certificate({ certificates }: { certificates: CertificateType[] }) {
     const getDownloadUrl = (fileId: string) => {
         return `https://drive.google.com/uc?export=download&id=${fileId}`;
     };
@@ -54,9 +27,7 @@ export default function Certificate() {
                 <h1 id="certificates" className={`${poppins.className} border border-4 border-yellow-500 font-bold text-2xl w-50 text-center mb-5`}>
                     Certificates
                 </h1>
-                {loading ? <Spinner /> : <></>}
-                {error != "" ? <span className="text-xl italic">{error}</span> : <></>}
-                {certificates.length == 0 && !loading ? 
+                {certificates.length == 0 ? 
                     <h2 className={`${poppins.className} border border-4 border-yellow-500 font-bold text-xl text-center mb-5 px-2`}>
                         No certificates listed
                     </h2> 
@@ -75,22 +46,12 @@ export default function Certificate() {
                                     alt={`${certificate.name} preview`}
                                     className="w-full h-full object-cover"
                                 />
-                                    {/* // <div className="text-amber-400 text-center p-4">
-                                    //     <svg className="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    //         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    //     </svg>
-                                    //     <p className="text-sm">Certificate Preview</p>
-                                    // </div> */}
                             </div>
 
                             <div className="p-6 bg-yellow-400 text-white">
                                 <h3 className={`${poppins.className} text-lg font-bold mb-2 leading-tight`}>
                                     {certificate.name}
                                 </h3>
-
-                                <p className="mb-4 text-sm font-medium">
-                                    Achieved: {formatDate(certificate.date)}
-                                </p>
 
                                 <div className="flex gap-2 flex-col sm:flex-row">
                                     <a
