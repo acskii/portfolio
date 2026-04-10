@@ -17,7 +17,7 @@ body {
   padding: 0;
 }
 
-p::selection,
+/* p::selection,
 h1::selection,
 h2::selection,
 h3::selection,
@@ -28,9 +28,10 @@ code::selection,
 img::selection,
 button::selection,
 span::selection {
-  background-color: #e7cc47; /* Or any other Tailwind color */
-  color: #704b06; /* Optional: change text color for contrast */
+  background-color: #e7cc47;
+  color: #704b06;
 }
+*/
 
 /* @theme inline {
   --color-background: var(--background);
