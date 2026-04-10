@@ -1,7 +1,7 @@
 import About from "@/app/components/portfolio/About";
 import Contact from "@/app/components/portfolio/Contact";
 import Project from "@/app/components/portfolio/Project";
-import Certificate from "@/app/components/portfolio/Certificate";
+import Certificate from "@/app/components/certificates/Certificate";
 
 import DataManager from "@/lib/data/DataManager";
 
@@ -24,7 +24,7 @@ export default async function Page() {
                 <Project projects={projects} />
             </div>
             <div className="mb-20">
-                <Certificate certificates={certificates} />
+                <Certificate certificates={certificates} limit={4} />
             </div>
         </>
     );
