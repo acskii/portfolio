@@ -15,6 +15,7 @@ class DataManager {
 
     /* FILE NAMES IN DRIVE */
     private CONTACT_FILE = "contact.json";
+    private RESUME_FILE = "resume";
     private PROJECT_FILE = "project.json";
     private ABOUT_FILE = "about.json";
     private CERTIFICATES_FOLDER = "Certificates";
@@ -70,6 +71,13 @@ class DataManager {
 
         const files = await this.driveManager.getFolderContent(folder.id);
         return files.map((f: any) => CertificateMapper.map(f as CertificateType));
+    }
+
+    async getResume() {
+        const file = this.root.find((f) => f.name == this.RESUME_FILE);
+        if (!file || this.driveManager.isFolder(file)) return null;
+
+        return file as DriveFileEntry;
     }
 
     async getProjects() {

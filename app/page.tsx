@@ -2,6 +2,7 @@ import Hero from "@/app/components/portfolio/Hero";
 import Contact from "@/app/components/portfolio/Contact";
 import Project from "@/app/components/portfolio/Project";
 import Certificate from "@/app/components/certificates/Certificate";
+import ResumeStrip from "./components/resume/ResumeStrip";
 
 import DataManager from "@/lib/data/DataManager";
 
@@ -14,10 +15,13 @@ export default async function Page() {
 
     return (
         <>
-            <div className="mb-20">
+            <div>
                 <Hero username="acskii" tidbits={about.about} bio={about.bio}/>
             </div>
-            <div className="mb-40 md:mb-20">
+            <div className="mt-[-40]">
+                <ResumeStrip />
+            </div>
+            <div className="mb-20">
                 <Contact contacts={contacts} />
             </div>
             <div className="mb-20">
