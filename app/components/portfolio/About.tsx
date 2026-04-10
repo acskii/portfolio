@@ -77,11 +77,11 @@ export default function About({ username, tidbits, bio } : { username: string, t
                     )}  
                     
                     {
-                        tidbits.map((t) => {
+                        tidbits.map((t, index) => {
                             const render = iconMap[t.icon];
 
                             return (
-                                <div className="text-sm flex flex-col md:flex-row gap-1 items-start md:items-center leading-relaxed">
+                                <div key={index} className="text-sm flex flex-col md:flex-row gap-1 items-start md:items-center leading-relaxed">
                                     {render && createElement(render, { size: 18 })} 
                                     <span>{t.content}</span>
                                 </div>
