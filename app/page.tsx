@@ -1,4 +1,4 @@
-import About from "@/app/components/portfolio/About";
+import Hero from "@/app/components/portfolio/Hero";
 import Contact from "@/app/components/portfolio/Contact";
 import Project from "@/app/components/portfolio/Project";
 import Certificate from "@/app/components/certificates/Certificate";
@@ -15,7 +15,7 @@ export default async function Page() {
     return (
         <>
             <div className="mb-20">
-                <About username="acskii" tidbits={about.about} bio={about.bio}/>
+                <Hero username="acskii" tidbits={about.about} bio={about.bio}/>
             </div>
             <div className="mb-40 md:mb-20">
                 <Contact contacts={contacts} />
