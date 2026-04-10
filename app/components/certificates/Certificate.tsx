@@ -6,7 +6,7 @@ import { CertificateType } from "@/lib/data/mapper/CertificateMapper";
 
 /* Nextjs */
 import Link from "next/link";
-import { ArrowRight, Download, Eye } from "@deemlol/next-icons";
+import { ArrowUpRight, Download, Eye } from "@deemlol/next-icons";
 
 /* Props */
 interface CertificateProps {
@@ -34,16 +34,17 @@ export default function Certificate({ certificates, limit }: CertificateProps) {
 
     return (
         <div className="px-0 md:px-14">
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-2 items-start justify-between">
                 <h1 
                     id="certificates" 
-                    className={`${poppins.className} border-4 border-yellow-500 dark:border-blue-600 font-bold text-2xl w-50 text-center mb-5 dark:text-white`}
+                    className={`${poppins.className} border-4 border-yellow-500 dark:border-blue-600 font-bold text-2xl w-50 text-center mb-5 dark:text-blue-600`}
                 >
                     Certificates
                 </h1>
+                
                 {limit && certificates.length > limit && (
-                    <Link href="/certificates" className="text-amber-600 dark:text-purple-400 font-bold hover:underline flex items-center gap-4">
-                        See More <ArrowRight size={18} />
+                    <Link href="/certificates" className="uppercase flex justify-center items-center gap-2 font-black text-yellow-600 dark:text-blue-500">
+                        View All <ArrowUpRight size={20} />
                     </Link>
                 )}
                 {certificates.length === 0 && (
