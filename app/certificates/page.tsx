@@ -6,7 +6,7 @@ export default async function CertificatesPage() {
     const certificates = await DataManager.getCertificates();
 
     return (
-        <div className="py-20 min-h-screen bg-brand-bg">
+        <div className="min-h-screen">
             <Certificate certificates={certificates} />
         </div>
     );
