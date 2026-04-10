@@ -21,7 +21,7 @@ export default async function Page() {
             <div className="mt-[-40]">
                 <ResumeStrip />
             </div>
-            <div className="mb-20">
+            <div>
                 <Contact contacts={contacts} />
             </div>
             <div className="mb-20">

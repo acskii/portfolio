@@ -1,161 +1,75 @@
 'use client';
-import { poppins } from "@/app/components/fonts";
-import { useState, useRef } from "react";
-import Card from "@/app/components/Card";
 
-/* Type imports */
+import { poppins } from "@/app/components/fonts";
+
+import Link from "next/link";
+
+import { ArrowUpRight, Clock } from "@deemlol/next-icons";
+
 import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 
-export default function Project({ projects } : { projects: ProjectType[] }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const touchStartX = useRef<number>(0);
-    const touchEndX = useRef<number>(0);
-
-    const nextProject = () => {
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
-    };
-
-    const prevProject = () => {
-        setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-    };
-
-    // Touch handlers for mobile swipe
-    const handleTouchStart = (e: React.TouchEvent) => {
-        // Check if the touch target is an interactive element
-        const target = e.target as HTMLElement;
-        const isInteractive = target.closest('button, a, [role="button"]');
-        
-        if (!isInteractive) {
-            touchStartX.current = e.touches[0].clientX;
-        }
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        // Check if the touch target is an interactive element
-        const target = e.target as HTMLElement;
-        const isInteractive = target.closest('button, a, [role="button"]');
-        
-        if (!isInteractive && touchStartX.current) {
-            touchEndX.current = e.touches[0].clientX;
-        }
-    };
-
-    const handleTouchEnd = () => {
-        if (!touchStartX.current || !touchEndX.current) return;
-        
-        const distance = touchStartX.current - touchEndX.current;
-        const isLeftSwipe = distance > 50;
-        const isRightSwipe = distance < -50;
-
-        if (isLeftSwipe && projects.length > 1) {
-            nextProject();
-        }
-        if (isRightSwipe && projects.length > 1) {
-            prevProject();
-        }
-        
-        // Reset touch coordinates
-        touchStartX.current = 0;
-        touchEndX.current = 0;
-    };
+export default function Project({ projects }: { projects: ProjectType[] }) {
+    // Only take the most recent 3
+    const recentProjects = projects.slice(0, 3);
 
     return (
-        <div className="px-0 md:px-14">
-            <div className="flex flex-row gap-2 items-center">
-                <h1 id="projects" className={`${poppins.className} border border-4 border-yellow-500 font-bold text-2xl w-50 text-center mb-5`}>
-                    Projects
-                </h1>
-                {projects.length == 0 ? 
-                    <h2 className={`${poppins.className} border border-4 border-yellow-500 font-bold text-xl text-center mb-5 px-2`}>
-                        No projects listed
-                    </h2> 
-                : <></>}
-            </div>
-            
-            {/* Desktop Layout */}
-            <div className="hidden lg:flex items-stretch">
-                <div className="overflow-hidden flex-1">
-                    <div 
-                        className="flex items-center transition-transform duration-500 ease-in-out"
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                    >
-                        {projects.map((project, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className={`flex-shrink-0 w-full transition-opacity duration-300 ${
-                                        index === currentIndex ? 'opacity-100' : 'opacity-30'
-                                    }`}
-                                >
-                                    <Card project={project} />
-                                </div>
-                            );
-                        })}
-                    </div>
+        <div className="px-0 md:px-14 py-16">
+            <div className="flex justify-between items-end mb-10">
+                <div>
+                    <h1 id="projects" className={`${poppins.className} border-4 border-yellow-500 dark:border-blue-600 font-bold text-2xl px-4 py-1 inline-block mb-2 dark:text-blue-600`}>
+                        Recent Projects
+                    </h1>
+                    <p className="text-gray-600 dark:text-black max-w-md">
+                        A glimpse into my latest engineering and development work.
+                    </p>
                 </div>
+                <Link href="/projects" className="hidden md:flex items-center gap-2 font-black text-yellow-600 dark:text-blue-500 hover:underline">
+                    VIEW ALL <ArrowUpRight size={20} />
+                </Link>
             </div>
 
-            {/* Mobile Layout */}
-            <div className="lg:hidden">
-                <div 
-                    className="overflow-hidden w-full"
-                    onTouchStart={handleTouchStart}
-                    onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}
-                >
-                    <div 
-                        className="flex transition-transform duration-500 ease-in-out"
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                    >
-                        {projects.map((project, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className={`flex-shrink-0 w-full transition-opacity duration-300 ${
-                                        index === currentIndex ? 'opacity-100' : 'opacity-30'
-                                    }`}
-                                >
-                                    <Card project={project} />
-                                </div>
-                            );
-                        })}
+            {/* Timeline Wrapper */}
+            <div className="relative border-l-4 border-yellow-500 dark:border-blue-600 ml-4 md:ml-0 md:grid md:grid-cols-3 md:border-l-0 md:border-t-4 gap-0">
+                {recentProjects.map((project, index) => (
+                    <div key={project.name} className="relative p-8 group">
+                        {/* Timeline Node */}
+                        <div className="absolute -left-[14px] top-10 md:-top-[14px] md:left-10 w-6 h-6 bg-yellow-500 dark:bg-blue-600 dark:text-blue-600 border-4 border-white dark:border-slate-900 rotate-45" />
+                        
+                        <div className="mb-4 flex items-center gap-2 text-xs font-bold text-yellow-600 dark:text-blue-400 uppercase tracking-widest">
+                            <Clock size={14} />
+                            {index === 0 ? "Latest" : "Previous"}
+                        </div>
+
+                        <h3 className={`${poppins.className} text-xl font-black mb-3 dark:text-blue-600 uppercase`}>
+                            {project.name}
+                        </h3>
+                        
+                        <p className="text-sm text-gray-600 dark:text-black mb-6 line-clamp-2">
+                            {project.desc}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            {project.skills.slice(0, 3).map(skill => (
+                                <span key={skill} className="text-xs border font-bold border-yellow-500 dark:border-blue-600 px-2 py-0.5 uppercase dark:text-blue-600">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+
+                        {/* Redirect to /projects#id */}
+                        <Link 
+                            href={`/projects#${project.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            className="inline-flex items-center gap-2 uppercase bg-yellow-500 dark:bg-blue-600 text-white px-4 py-2 font-black text-xs group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+                        >
+                            Full Details <ArrowUpRight size={14} />
+                        </Link>
                     </div>
-                </div>
+                ))}
             </div>
-            
-            {projects.length > 1 && <div className="flex flex-row gap-2 items-center justify-center mt-5">
-                <button
-                    onClick={prevProject}
-                    className="flex items-center justify-center bg-amber-400 hover:bg-amber-500 transition-colors px-4"
-                    disabled={projects.length <= 1}
-                >
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                    <div className="flex flex-row gap-2 mx-2">
-                        {projects.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setCurrentIndex(index)}
-                                className={`w-3 h-3 transition-colors ${
-                                    index === currentIndex 
-                                        ? 'bg-yellow-500' 
-                                        : 'bg-gray-400 hover:bg-gray-300'
-                                }`}
-                            />
-                        ))}
-                    </div>
-                <button
-                    onClick={nextProject}
-                    className="flex items-center justify-center bg-amber-400 hover:bg-amber-500 transition-colors px-4"
-                    disabled={projects.length <= 1}
-                >
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div> }
+
+            <Link href="/projects" className="md:hidden mt-8 uppercase flex justify-center items-center gap-2 font-black text-yellow-600 dark:text-blue-500">
+                View All <ArrowUpRight size={20} />
+            </Link>
         </div>
     );
 }
