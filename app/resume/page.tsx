@@ -1,7 +1,7 @@
 
 import DataManager from "@/lib/data/DataManager";
 
-import { poppins } from "../components/fonts";
+import { poppins } from "../fonts";
 import Resume from "../components/resume/Resume";
 import { XCircle } from "@deemlol/next-icons";
 

@@ -1,60 +1,60 @@
 'use client';
 
-/* Font imports */
-import { poppins } from "@/app/components/fonts";
+import { poppins } from "@/app/fonts";
 
-/* Icon imports */
-import { iconMap } from "@/app/components/icons";
-
-/* Contacts JSON */
-// import contact from "@/app/contact.json";
 import { createElement } from "react";
-import CopyToClipboard from "../CopyToClipboard";
+
 import { ContactType } from "@/lib/data/mapper/ContactMapper";
 
-export default function Contact({ contacts }: { contacts: ContactType[] }) {
+import { iconMap } from "@/app/icons";
+
+import CopyToClipboard from "../CopyToClipboard";
+
+interface ContactProps {
+    contacts: ContactType[];
+}
+
+export default function Contact({ contacts }: ContactProps) {
     return (
-        <div className="px-0 md:px-14">
-            <div className="flex flex-row gap-2 items-center">
-                <h1 id="contact" className={`${poppins.className} border border-4 border-yellow-500 font-bold text-2xl w-50 text-center mb-5`}>
+        <div id="contact" className="px-0 md:px-14 py-10">
+            <div className="flex flex-row gap-2 items-center mb-8">
+                <h1 className={`${poppins.className} border-4 border-yellow-500 dark:border-blue-600 font-bold text-2xl px-6 py-1 dark:text-blue-600`}>
                     Contact
                 </h1>
             </div>
-            <div className="flex flex-col md:flex-row items-stretch max-h-screen">
-                <div className="flex flex-row border border-4 border-yellow-500 max-w-screen min-w-60">
-                    <div className="relative bg-gradient-to-br from-yellow-400 via-transparent to-yellow-600 w-full">
-                        <div className="relative z-10 py-5 md:py-0 px-10 md:mb-10 w-full h-full flex items-center">
-                            <div>
-                                <h2 className={`${poppins.className} text-2xl font-bold mb-2`}>Get in touch</h2>
-                                <p className={`${poppins.className} text-sm text-gray-600 leading-relaxed`}>
-                                    You can contact me through any of these platforms:
-                                </p>
-                            </div>
+
+            <div className="flex flex-col xl:flex-row items-stretch gap-8">
+                <div className="flex-1 flex flex-col border-4 border-yellow-500 dark:border-blue-600 bg-white dark:bg-slate-900">
+                    <div className="relative bg-gradient-to-br from-yellow-400 via-transparent to-yellow-600 dark:from-blue-600 dark:to-slate-900 p-10 border-b-4 border-yellow-500 dark:border-blue-600">
+                        <h2 className={`${poppins.className} text-3xl font-black mb-2 dark:text-white uppercase`}>
+                            Get in touch
+                        </h2>
+                        <p className={`${poppins.className} text-sm text-gray-700 dark:text-gray-300 leading-relaxed max-w-md`}>
+                            Reach out to me using:
+                        </p>
+                        
+                        <div className="absolute top-0 right-0 p-4">
+                            <div className="w-8 h-8 border-2 border-yellow-500 dark:border-blue-400 rotate-45 opacity-50"></div>
                         </div>
-                        <div className="absolute top-0 left-0 w-full h-full">
-                            <div className="absolute top-4 left-4 w-8 h-8 border-2 border-yellow-500 rotate-45"></div>
-                            <div className="absolute bottom-8 right-6 w-6 h-6 border border-yellow-500 rounded-full"></div>
-                            <div className="absolute top-1/2 right-4 w-4 h-8 border border-yellow-500"></div>
-                        </div>
+                    </div>
+
+                    <div className="flex-1 p-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-slate-900">
+                        {contacts.map((c) => {
+                            const render = iconMap[c.title];
+                            return (
+                                <div className="group" key={c.title}>
+                                    <div className="flex flex-row gap-1 items-center mb-2">
+                                        {render && createElement(render, { size: 18 })}
+                                        <h3 className="border-b-2 border-amber-200 dark:border-blue-900 px-2 font-bold text-sm uppercase dark:text-white">
+                                            {c.title}
+                                        </h3>
+                                    </div>
+                                    <CopyToClipboard copy={c.href} />
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
-                    <div className="flex-1 min-w-60 md:min-w-100 max-w-screen border border-4 border-t-0 md:border-t-4 border-yellow-500 flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-2 max-h-screen p-8 md:border-l-0">
-                        {
-                            contacts.map((c) => {
-                                const render = iconMap[c.title];
-
-                                return (
-                                    <div className="" key={c.title}>
-                                        <div className="flex flex-row gap-1 items-center mb-2">
-                                            {render && createElement(render, { size: 18 })}
-                                            <h3 className="border border-2 border-amber-200 px-8 font-medium text-md">{c.title}</h3>
-                                        </div>
-                                        <CopyToClipboard copy={c.href} />
-                                    </div>
-                                );
-                            })
-                        }
-                    </div>
             </div>
         </div>
     );

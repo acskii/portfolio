@@ -1,6 +1,6 @@
 'use client';
 
-import { poppins } from "@/app/components/fonts";
+import { poppins } from "@/app/fonts";
 import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 import { ArrowUpRight, Box, ChevronDown, Cpu } from "@deemlol/next-icons";
 import { useState, useEffect } from "react";

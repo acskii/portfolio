@@ -1,7 +1,7 @@
 import Spinner from "./components/LoadingSpinner";
 
 /* Font imports */
-import { poppins } from "@/app/components/fonts";
+import { poppins } from "@/app/fonts";
 
 export default function Loading() {
     return (

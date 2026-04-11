@@ -1,7 +1,7 @@
 'use client';
 
 /* Font imports */
-import { poppins } from "@/app/components/fonts";
+import { poppins } from "@/app/fonts";
 
 /* Icon imports */
 import { MapPin, Sparkles2 } from "@deemlol/next-icons";
@@ -10,7 +10,7 @@ import { MapPin, Sparkles2 } from "@deemlol/next-icons";
 import { useState, useEffect, createElement } from "react";
 import Spinner from "@/app/components/LoadingSpinner";
 import { AboutItemType } from "@/lib/data/mapper/AboutMapper";
-import { iconMap } from "../icons";
+import { iconMap } from "../../icons";
 import { SkillType } from "@/lib/data/mapper/SkillMapper";
 
 /* Types */
@@ -34,8 +34,6 @@ export default function Hero({ username, tidbits, skills, bio } : HeroProps) {
     const [loading, setLoading] = useState<boolean>(false);
     const [user, setUser] = useState<GitHubResponse | null>(null);
     const [error, setError] = useState<string>("");
-
-    console.log(skills);
 
     useEffect(() => {
         const getUser = async () => {

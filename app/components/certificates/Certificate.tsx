@@ -1,5 +1,5 @@
 /* Font imports */
-import { poppins } from "@/app/components/fonts";
+import { poppins } from "@/app/fonts";
 
 /* Certificate Data Object */
 import { CertificateType } from "@/lib/data/mapper/CertificateMapper";

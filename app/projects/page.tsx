@@ -1,9 +1,9 @@
 
 import DataManager from "@/lib/data/DataManager";
 
-import { poppins } from "../components/fonts";
+import { poppins } from "../fonts";
 
-import Card from "../components/Card";
+import Card from "../components/projects/Card";
 import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 
 export default async function ProjectPage() {

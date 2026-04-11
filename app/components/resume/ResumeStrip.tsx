@@ -1,6 +1,6 @@
 'use client';
 
-import { poppins } from "@/app/components/fonts";
+import { poppins } from "@/app/fonts";
 import Link from "next/link";
 import { FileText, ArrowRight, Sparkles } from "@deemlol/next-icons";
 

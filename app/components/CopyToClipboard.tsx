@@ -25,7 +25,7 @@ export default function CopyToClipboard({ copy }: { copy: string }) {
                     aria-label="Copy text to clipboard" 
                     aria-describedby="tooltip-Copy"
                     onClick={handleClick}
-                    className="cursor-pointer border-amber-300 hover:border-2"
+                    className="cursor-pointer border-amber-300 dark:border-blue-600 hover:border-2"
                 >
                     <span className={`text-primary ${clicked ? "hidden" : ""} size-5`}>
                         <Clipboard size={18} />

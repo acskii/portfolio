@@ -2,7 +2,7 @@
 import DataManager from "@/lib/data/DataManager";
 
 /* Font import */
-import { poppins } from "../components/fonts";
+import { poppins } from "../fonts";
 
 /* Type import */
 import { ContactType } from "@/lib/data/mapper/ContactMapper";
