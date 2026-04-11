@@ -5,7 +5,12 @@ import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 import { ArrowUpRight, Box, ChevronDown, Cpu } from "@deemlol/next-icons";
 import { useState, useEffect } from "react";
 
-export default function Card({ project }: { project: ProjectType }) {
+interface CardProps {
+    project: ProjectType;
+    index: number;
+}
+
+export default function Card({ project, index }: CardProps) {
     const { preview, name, desc, skills, links, features, ...additionalProps } = project;
     const projectId = name.toLowerCase().replace(/\s+/g, '-');
 
@@ -50,7 +55,6 @@ export default function Card({ project }: { project: ProjectType }) {
     return (
         <div id={projectId} className="mb-20 scroll-mt-24">
             <div className="flex flex-col lg:flex-row border-4 border-yellow-500 dark:border-blue-600 bg-white dark:bg-slate-900 shadow-[8px_8px_0px_0px_rgba(234,179,120,1)] dark:shadow-[8px_8px_0px_0px_rgba(120,99,235,1)]">
-                
                 {/* Visual Side */}
                 <div className="lg:w-2/5 flex justify-center items-center min-h-[300px] border-b-4 lg:border-b-0 lg:border-r-4 border-yellow-500 dark:border-blue-600 bg-slate-50 dark:bg-slate-800">
                     {preview ? (
@@ -66,7 +70,11 @@ export default function Card({ project }: { project: ProjectType }) {
                 </div>
 
                 {/* Content Side */}
-                <div className="lg:w-3/5 p-6 md:p-10">
+                <div className="relative lg:w-3/5 p-6 md:p-10">
+                    <span className={`${poppins.className} absolute right-0 top-0 font-bold text-2xl px-4 py-2 border-t-0 border-r-0 border-4 border-yellow-500 dark:border-blue-600 bg-slate-50 dark:bg-slate-800`}>
+                        {index + 1}
+                    </span>
+
                     <h2 className={`${poppins.className} text-3xl font-black dark:text-white uppercase mb-4`}>
                         {name}
                     </h2>
@@ -79,7 +87,7 @@ export default function Card({ project }: { project: ProjectType }) {
                     <div className="mb-4 border-2 border-slate-100 dark:border-slate-800">
                         <button 
                             onClick={() => setIsSpecsOpen(!isSpecsOpen)}
-                            className="w-full flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 hover:bg-yellow-50 dark:hover:bg-blue-900/20 transition-colors"
+                            className="w-full flex cursor-pointer items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 hover:bg-yellow-50 dark:hover:bg-blue-900/20 transition-colors"
                         >
                             <span className="flex items-center gap-2 font-black text-xs uppercase tracking-widest dark:text-white">
                                 <Cpu size={16} className="text-yellow-600 dark:text-blue-500" /> Properties
@@ -100,7 +108,7 @@ export default function Card({ project }: { project: ProjectType }) {
                         <div className="mb-8 border-2 border-slate-100 dark:border-slate-800">
                             <button 
                                 onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
-                                className="w-full flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 hover:bg-yellow-50 dark:hover:bg-blue-900/20 transition-colors"
+                                className="w-full flex cursor-pointer items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 hover:bg-yellow-50 dark:hover:bg-blue-900/20 transition-colors"
                             >
                                 <span className="flex items-center gap-2 font-black text-xs uppercase tracking-widest dark:text-white">
                                     <Box size={16} className="text-yellow-600 dark:text-blue-500" /> Key Features
