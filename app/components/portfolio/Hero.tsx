@@ -11,6 +11,7 @@ import { useState, useEffect, createElement } from "react";
 import Spinner from "@/app/components/LoadingSpinner";
 import { AboutItemType } from "@/lib/data/mapper/AboutMapper";
 import { iconMap } from "../icons";
+import { SkillType } from "@/lib/data/mapper/SkillMapper";
 
 /* Types */
 type GitHubResponse = {
@@ -21,11 +22,20 @@ type GitHubResponse = {
     location: string;
 };
 
+interface HeroProps {
+    username: string;
+    tidbits: AboutItemType[];
+    skills: SkillType[];
+    bio: string;
+}
 
-export default function Hero({ username, tidbits, bio } : { username: string, tidbits: AboutItemType[], bio: string }) {
+
+export default function Hero({ username, tidbits, skills, bio } : HeroProps) {
     const [loading, setLoading] = useState<boolean>(false);
     const [user, setUser] = useState<GitHubResponse | null>(null);
     const [error, setError] = useState<string>("");
+
+    console.log(skills);
 
     useEffect(() => {
         const getUser = async () => {
@@ -92,7 +102,21 @@ export default function Hero({ username, tidbits, bio } : { username: string, ti
 
                     <hr className="my-2 h-0.5 border-t-0 bg-amber-200 dark:bg-blue-800" />
 
-                    <p className="text-lg leading-relaxed dark:text-gray-300 mb-8">{bio}</p>
+                    <p className="text-lg leading-relaxed dark:text-gray-300 mb-4">{bio}</p>
+
+                    <div className="flex flex-wrap gap-3 mb-4">
+                        {skills.map((skill, idx) => (
+                            <div 
+                                key={idx} 
+                                className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 px-3 py-1.5 grayscale hover:grayscale-0 transition-all duration-300"
+                            >
+                                <img src={skill.image} alt={skill.name} className="w-5 h-5 object-contain" />
+                                <span className="text-xs font-bold uppercase tracking-tighter dark:text-white">
+                                    {skill.name}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
 
                     <div className="flex gap-4">
                         <a href="#contact" className="bg-yellow-500 dark:bg-blue-600 text-white px-6 py-3 font-bold transition-transform">

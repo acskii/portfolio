@@ -5,6 +5,7 @@ import AboutMapper, { AboutItemType } from "./mapper/AboutMapper";
 import CertificateMapper, { CertificateType } from "./mapper/CertificateMapper";
 import ContactMapper, { type ContactType } from "./mapper/ContactMapper";
 import ProjectMapper, { ProjectType } from "./mapper/ProjectMapper";
+import SkillMapper, { SkillType } from "./mapper/SkillMapper";
 
 class DataManager {
     private driveManager : GoogleDriveManager;
@@ -15,6 +16,7 @@ class DataManager {
 
     /* FILE NAMES IN DRIVE */
     private CONTACT_FILE = "contact.json";
+    private SKILLS_FILE = "skill.json";
     private RESUME_FILE = "resume";
     private PROJECT_FILE = "project.json";
     private ABOUT_FILE = "about.json";
@@ -71,6 +73,11 @@ class DataManager {
 
         const files = await this.driveManager.getFolderContent(folder.id);
         return files.map((f: any) => CertificateMapper.map(f as CertificateType));
+    }
+
+    async getSkills() {
+        const json = await this.getJSON(this.SKILLS_FILE);
+        return json.map((c: any) => SkillMapper.map(c as SkillType));
     }
 
     async getResume() {

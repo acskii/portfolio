@@ -10,13 +10,14 @@ export default async function Page() {
     await DataManager.load();
     const contacts = await DataManager.getContact();
     const about = await DataManager.getAbout();
+    const skills = await DataManager.getSkills();
     const certificates = await DataManager.getCertificates();
     const projects = await DataManager.getProjects();
 
     return (
         <>
             <div>
-                <Hero username="acskii" tidbits={about.about} bio={about.bio}/>
+                <Hero username="acskii" tidbits={about.about} skills={skills} bio={about.bio}/>
             </div>
             <div className="mt-[-40]">
                 <ResumeStrip />
