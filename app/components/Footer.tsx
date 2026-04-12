@@ -9,10 +9,12 @@ import { Github, Linkedin, Mail, ExternalLink } from "@deemlol/next-icons";
 import { useState, useEffect } from "react";
 
 const portfolioSections = [
+    { name: "Resume", href: "/resume" },
     { name: "About", href: "/#about" },
     { name: "Projects", href: "/projects" },
     { name: "Certificates", href: "/certificates" },
     { name: "Contact", href: "/#contact" },
+    { name: "Chat bot", href: "/chat" },
 ];
 
 const friendlyMessages = [

@@ -5,6 +5,7 @@ import Certificate from "@/app/components/certificates/Certificate";
 import ResumeStrip from "./components/resume/ResumeStrip";
 
 import DataManager from "@/lib/data/DataManager";
+import ChatStrip from "./components/chat/ChatStrip";
 
 export default async function Page() {
     await DataManager.load();
@@ -30,6 +31,9 @@ export default async function Page() {
             </div>
             <div className="mb-20">
                 <Certificate certificates={certificates} limit={4} />
+            </div>
+            <div className="mb-20">
+                <ChatStrip />
             </div>
         </>
     );
