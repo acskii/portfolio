@@ -7,6 +7,8 @@ import ResumeStrip from "./components/resume/ResumeStrip";
 import DataManager from "@/lib/data/DataManager";
 import ChatStrip from "./components/chat/ChatStrip";
 
+export const revalidate = 3600;
+
 export default async function Page() {
     await DataManager.load();
     const contacts = await DataManager.getContact();

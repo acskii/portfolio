@@ -7,6 +7,9 @@ import ContactMapper, { type ContactType } from "./mapper/ContactMapper";
 import ProjectMapper, { ProjectType } from "./mapper/ProjectMapper";
 import SkillMapper, { SkillType } from "./mapper/SkillMapper";
 
+// Make sure the object is dynamic, not cached
+export const dynamic = 'force-dynamic';
+
 class DataManager {
     private driveManager : GoogleDriveManager;
     private root : DriveFileEntry[] = [];

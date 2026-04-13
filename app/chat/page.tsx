@@ -3,6 +3,8 @@ import ChatSection from "../components/chat/ChatSection";
 import { SkillType } from "@/lib/data/mapper/SkillMapper";
 import { CertificateType } from "@/lib/data/mapper/CertificateMapper";
 
+export const revalidate = 3600;
+
 export default async function Chat() {
     await DataManager.load();
     const contacts = await DataManager.getContact();

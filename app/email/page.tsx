@@ -13,6 +13,8 @@ import { XCircle } from "@deemlol/next-icons";
 /* Component import */
 import SendEmail from "../components/email/SendEmail";
 
+export const revalidate = 3600;
+
 export default async function EmailRedirect() {
     // Get email in contact info from drive
     await DataManager.load();

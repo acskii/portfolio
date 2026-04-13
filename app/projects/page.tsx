@@ -6,6 +6,8 @@ import { poppins } from "../fonts";
 import Card from "../components/projects/Card";
 import { ProjectType } from "@/lib/data/mapper/ProjectMapper";
 
+export const revalidate = 3600;
+
 export default async function ProjectPage() {
     await DataManager.load();
     const projects = await DataManager.getProjects();

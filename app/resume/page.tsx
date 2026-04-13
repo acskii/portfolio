@@ -5,6 +5,8 @@ import { poppins } from "../fonts";
 import Resume from "../components/resume/Resume";
 import { XCircle } from "@deemlol/next-icons";
 
+export const revalidate = 3600;
+
 export default async function ResumePage() {
     await DataManager.load();
     const resume = await DataManager.getResume();
